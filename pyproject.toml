@@ -1,7 +1,7 @@
 [project]
 name = "python-ml-pipeline"
 version = "1.0.0-beta"
-requires-python = "==3.14.1"
+requires-python = "==3.13.2"
 dependencies = [
     "matplotlib>=3.9.0",
     "mlflow>=2.20.0",
