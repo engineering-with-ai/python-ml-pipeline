@@ -143,7 +143,9 @@ class TestIntegration:
 
         with (
             start_mlflow() as mlflow_c,
-            start_postgres(image="timescale/timescaledb:latest-pg15") as pg,
+            start_postgres(
+                password=password, image="timescale/timescaledb:latest-pg15"
+            ) as pg,
         ):
             test_config = load_config().model_copy(
                 update={
@@ -221,7 +223,9 @@ class TestIntegration:
 
         with (
             start_mlflow() as mlflow_c,
-            start_postgres(image="timescale/timescaledb:latest-pg15") as pg,
+            start_postgres(
+                password=password, image="timescale/timescaledb:latest-pg15"
+            ) as pg,
             start_pushgateway() as pushgateway,
         ):
             test_config = load_config().model_copy(
