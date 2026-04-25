@@ -181,7 +181,8 @@ class TestIntegration:
 
             # Get champion model type from MLflow
             runs = mlflow.search_runs()
-            champion_str = runs["params.champion_model"].iloc[0]  # type: ignore[call-overload]
+            assert isinstance(runs, pd.DataFrame)
+            champion_str = runs["params.champion_model"].iloc[0]
             champion = PredictiveModels(champion_str)
 
             # Create appropriate input based on champion model type

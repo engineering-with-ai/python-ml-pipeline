@@ -1,7 +1,7 @@
 """Model training pipeline with champion/challenger pattern."""
 
 import os
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 import polars as pl
 import psycopg2
@@ -70,7 +70,8 @@ def split_train_test(
         Tuple of (train_df, test_df)
     """
     max_timestamp = df["timestamp"].max()
-    split_date = max_timestamp - timedelta(days=test_days)  # type: ignore[operator]
+    assert isinstance(max_timestamp, datetime)
+    split_date = max_timestamp - timedelta(days=test_days)
     train_df = df.filter(pl.col("timestamp") < split_date)
     test_df = df.filter(pl.col("timestamp") >= split_date)
     return train_df, test_df
