@@ -1662,18 +1662,6 @@ wheels = [
 ]
 
 [[package]]
-name = "pyarrow-stubs"
-version = "20.0.0.20251215"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "pyarrow" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/30/16/ca991ada0416dc02c246e4b3c853f35053676eb704c63720ef24547d2d68/pyarrow_stubs-20.0.0.20251215.tar.gz", hash = "sha256:92c1fda4998f0c13e608d8abc7e4b8537e3ef108f6bf42c58e5af97e7d143e75", size = 236578, upload-time = "2025-12-15T06:47:46.187Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/b3/7c/a467f91c6c3aa4c34d5a1dafca9ae4db01b757877577d6b0ae04908a0180/pyarrow_stubs-20.0.0.20251215-py3-none-any.whl", hash = "sha256:0634e70388cd23e7c78e2abbb1989822edc34df2d2ff4fd50a2316dd0cdafd9f", size = 235697, upload-time = "2025-12-15T06:47:44.643Z" },
-]
-
-[[package]]
 name = "pyasn1"
 version = "0.6.3"
 source = { registry = "https://pypi.org/simple" }
@@ -1859,7 +1847,6 @@ dev = [
     { name = "pip-audit" },
     { name = "poethepoet" },
     { name = "pook" },
-    { name = "pyarrow-stubs" },
     { name = "pytest" },
     { name = "pytest-asyncio" },
     { name = "pytest-cov" },
@@ -1868,7 +1855,6 @@ dev = [
     { name = "ty" },
     { name = "types-pyyaml" },
     { name = "types-requests" },
-    { name = "types-seaborn" },
 ]
 
 [package.metadata]
@@ -1903,7 +1889,6 @@ dev = [
     { name = "pip-audit", specifier = ">=2.6.1" },
     { name = "poethepoet", specifier = ">=0.32.0" },
     { name = "pook", specifier = ">=2.1.0" },
-    { name = "pyarrow-stubs", specifier = ">=20.0" },
     { name = "pytest", specifier = ">=8.3.4" },
     { name = "pytest-asyncio", specifier = ">=0.25.4" },
     { name = "pytest-cov", specifier = ">=6.0.0" },
@@ -1912,7 +1897,6 @@ dev = [
     { name = "ty", specifier = ">=0.0.18" },
     { name = "types-pyyaml", specifier = ">=6.0" },
     { name = "types-requests", specifier = ">=2.32" },
-    { name = "types-seaborn", specifier = ">=0.13" },
 ]
 
 [[package]]
@@ -2391,20 +2375,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/69/6a/749dc53a54a3f35842c1f8197b3ca6b54af6d7458a1bfc75f6629b6da666/types_requests-2.33.0.20260408.tar.gz", hash = "sha256:95b9a86376807a216b2fb412b47617b202091c3ea7c078f47cc358d5528ccb7b", size = 23882, upload-time = "2026-04-08T04:34:49.33Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/90/b8/78fd6c037de4788c040fdd323b3369804400351b7827473920f6c1d03c10/types_requests-2.33.0.20260408-py3-none-any.whl", hash = "sha256:81f31d5ea4acb39f03be7bc8bed569ba6d5a9c5d97e89f45ac43d819b68ca50f", size = 20739, upload-time = "2026-04-08T04:34:48.325Z" },
-]
-
-[[package]]
-name = "types-seaborn"
-version = "0.13.2.20260408"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "matplotlib" },
-    { name = "numpy" },
-    { name = "pandas-stubs" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/9c/48/f372e5d156fe57abd6ed8342567b63f5aa62312cba86e8f22f0636d53875/types_seaborn-0.13.2.20260408.tar.gz", hash = "sha256:bdc2b0666e446bc23aeeab5d968021a6e7849f017287a4eb56c3b78c87b5bfba", size = 29551, upload-time = "2026-04-08T04:34:45.852Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/5f/3b/3547a97599d4a6378a1dadd5e9bdd491682dde89752befbb0bb47d8f66fa/types_seaborn-0.13.2.20260408-py3-none-any.whl", hash = "sha256:2f5480c0285a33d946993c8d64fa802344efec2e6e50979c2d5bb1b60a847e64", size = 40856, upload-time = "2026-04-08T04:34:44.971Z" },
 ]
 
 [[package]]

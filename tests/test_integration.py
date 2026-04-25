@@ -10,6 +10,8 @@ import pandas as pd
 import pook
 import psycopg2
 import requests
+from mlflow.tracking.client import MlflowClient
+from mlflow.tracking.fluent import search_runs
 from prometheus_client.parser import text_string_to_metric_families
 
 from src.app import app
@@ -170,7 +172,7 @@ class TestIntegration:
 
             # Assert - verify model registered and inference works
             mlflow.set_tracking_uri(mlflow_c.url)
-            model_versions = mlflow.MlflowClient().search_model_versions(
+            model_versions = MlflowClient().search_model_versions(
                 "name='test_timeseries_predictor'"
             )
             assert len(model_versions) > 0
@@ -180,7 +182,7 @@ class TestIntegration:
             loaded_model = mlflow.pyfunc.load_model(model_uri)
 
             # Get champion model type from MLflow
-            runs = mlflow.search_runs()
+            runs = search_runs()
             assert isinstance(runs, pd.DataFrame)
             champion_str = runs["params.champion_model"].iloc[0]
             champion = PredictiveModels(champion_str)

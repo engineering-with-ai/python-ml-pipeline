@@ -1,17 +1,18 @@
 [environment]
 python-version = "3.13"
-python = ".venv"
 root = ["./"]
 
 [rules]
+all = "error"
 unresolved-import = "ignore"
-unused-ignore-comment = "error"
+# pandera.typing.polars.DataFrame is gated by `if POLARS_INSTALLED:` runtime conditional.
+# No stubs exist; ty can't statically prove the conditional is true.
+possibly-missing-import = "ignore"
 
 [src]
 include = ["src", "tests"]
 
 [terminal]
-error-on-warning = true
 output-format = "concise"
 
 [analysis]

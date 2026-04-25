@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 import polars as pl
 import psycopg2
-import xgboost as xgb
+from xgboost.sklearn import XGBRegressor
 from prophet import Prophet
 from pydantic import BaseModel, ConfigDict
 from sklearn.metrics import mean_absolute_error
@@ -33,7 +33,7 @@ class TrainingResult(BaseModel):
     baseline_mae: float
     champion: PredictiveModels
     prophet_model: Prophet
-    xgboost_model: xgb.XGBRegressor
+    xgboost_model: XGBRegressor
 
 
 def load_timeseries_data(config: Config) -> pl.DataFrame:
@@ -147,7 +147,7 @@ def create_xgboost_features(df: pl.DataFrame) -> pl.DataFrame:
 
 def train_xgboost(
     train_df: pl.DataFrame, test_df: pl.DataFrame
-) -> tuple[float, xgb.XGBRegressor]:
+) -> tuple[float, XGBRegressor]:
     """Train XGBoost model and evaluate.
 
     Args:
@@ -171,7 +171,7 @@ def train_xgboost(
     y_test = test_features["value"].to_numpy()
 
     # Train model
-    model = xgb.XGBRegressor(
+    model = XGBRegressor(
         n_estimators=XGBOOST_N_ESTIMATORS,
         learning_rate=XGBOOST_LEARNING_RATE,
         max_depth=XGBOOST_MAX_DEPTH,
