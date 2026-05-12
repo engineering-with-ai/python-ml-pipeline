@@ -260,7 +260,9 @@ class TestIntegration:
                 train_models(test_config, current_champion=PredictiveModels.PROPHET)
 
             # Assert - verify metrics were pushed to Pushgateway
-            response = requests.get(f"http://localhost:{pushgateway.port}/metrics", timeout=10)
+            response = requests.get(
+                f"http://localhost:{pushgateway.port}/metrics", timeout=10
+            )
             assert response.status_code == 200
 
             metrics = parse_prometheus_metrics(response.text)
